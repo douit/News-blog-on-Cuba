@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.sec2.news.web.news.NewsBrowse"
+        focusComponent="newsTable"
+        lookupComponent="newsTable"
+        messagesPack="ru.sec2.news.web.news">
+    <dsContext>
+        <groupDatasource id="newsCollectionDs"
+                         class="ru.sec2.news.entity.News"
+                         view="_local">
+            <query>
+                <![CDATA[select e from news$News e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="newsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="newsTable"
+                datasource="newsCollectionDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="newsTable"
+                    height="276px"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="textOfNews"/>
+                <column id="newsCaption"/>
+            </columns>
+            <rows datasource="newsCollectionDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true"
+                          width="467px">
+                <button id="createBtn"
+                        action="newsTable.create"/>
+                <button id="editBtn"
+                        action="newsTable.edit"/>
+                <button id="removeBtn"
+                        action="newsTable.remove"/>
+                <button id="public"
+                        align="TOP_RIGHT"
+                        caption="Public"
+                        invoke="publicNews"/>
+                <button id="unpublic"
+                        align="TOP_RIGHT"
+                        caption="Unpublic"
+                        invoke="unpublicNews"/>
+            </buttonsPanel>
+        </groupTable>
+        <scrollBox height="500px">
+            <accordion id="accordion"
+                       height="100%">
+                <tab id="tab"
+                     margin="true,false,false,false"
+                     spacing="true">
+                    <htmlBox id="textFiledHTML"
+                             height="135px"/>
+                </tab>
+                <tab id="tab2"
+                     margin="true,false,false,false"
+                     spacing="true">
+                    <htmlBox id="htmlText2"/>
+                </tab>
+                <tab caption="Tab"
+                     lazy="true"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab caption="Tab"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab id="three"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab caption="Tab"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab id="two"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab id="one"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab caption="Tab"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab id="tab_1"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab caption="Tab"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab caption="Tab"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab caption="Tab"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab caption="Tab"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab caption="the last tab"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+                <tab caption="Tab"
+                     margin="true,false,false,false"
+                     spacing="true"/>
+            </accordion>
+        </scrollBox>
+    </layout>
+</window>

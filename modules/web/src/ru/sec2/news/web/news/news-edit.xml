@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.sec2.news.web.news.NewsEdit"
+        datasource="newsDs"
+        messagesPack="ru.sec2.news.web.news">
+    <dsContext>
+        <datasource id="newsDs"
+                    class="ru.sec2.news.entity.News"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <textField id="textFieldCaption"
+                   caption="Caption"
+                   datasource="newsDs"
+                   property="newsCaption"/>
+        <richTextArea id="textFieldNews"
+                      caption="TextOfNews"
+                      datasource="newsDs"
+                      height="248px"
+                      property="textOfNews"
+                      width="498px"/>
+        <frame id="windowActions"
+               height="677px"
+               screen="editWindowActions"/>
+    </layout>
+</window>
