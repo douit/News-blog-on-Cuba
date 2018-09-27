@@ -3,5 +3,6 @@
     <menu id="For news writer"
           insertBefore="administration">
         <item screen="news$News.browse"/>
+        <item screen="publicNews"/>
     </menu>
 </menu-config>

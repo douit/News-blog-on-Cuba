@@ -10,6 +10,7 @@ create table NEWS_NEWS (
     DELETED_BY varchar(50),
     --
     TEXT_OF_NEWS longvarchar,
+    STATUS integer,
     NEWS_CAPTION varchar(100) not null,
     --
     primary key (ID)

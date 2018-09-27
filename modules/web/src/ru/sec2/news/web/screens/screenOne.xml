@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="ru.sec2.news.web.screens.PublicNews"
+        messagesPack="ru.sec2.news.web.screens">
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <split id="newsSplit"
+               dockable="true"
+               height="100%"
+               orientation="horizontal"
+               pos="15"
+               width="100%">
+            <scrollBox id="scrollBoxCA"
+                       height="100%">
+                <accordion id="commentsAccordion"
+                           height="1000px"/>
+            </scrollBox>
+            <scrollBox id="scrollBoxNA"
+                       height="1000px">
+                <accordion id="newsAccordion"
+                           height="100%"/>
+            </scrollBox>
+        </split>
+    </layout>
+</window>

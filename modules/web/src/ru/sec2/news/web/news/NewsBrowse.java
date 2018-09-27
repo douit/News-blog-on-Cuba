@@ -1,12 +1,9 @@
 package ru.sec2.news.web.news;
 
 import com.haulmont.cuba.core.global.DataManager;
-import com.haulmont.cuba.gui.components.AbstractLookup;
-import com.haulmont.cuba.gui.components.Accordion;
-import com.haulmont.cuba.gui.components.GroupTable;
-import com.haulmont.cuba.gui.components.HtmlBoxLayout;
+import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
-import ru.sec2.news.entity.News;
+import ru.sec2.news.web.screens.PublicNews;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -22,11 +19,10 @@ public class NewsBrowse extends AbstractLookup {
     @Inject
     private DataManager dataManager;
     @Inject
-    private GroupTable<News> newsTable;
-    @Inject
     private Accordion accordion;
     @Inject
     private ComponentsFactory componentsFactory;
+
     String strin;
 
     @Override
@@ -37,9 +33,14 @@ public class NewsBrowse extends AbstractLookup {
     }
 
     public void publicNews(){
-        System.out.println("PUBLIC WORKS");
-        accordion.addTab("FIRST TAB", componentsFactory.createComponent("com.haulmont.cuba.gui.components.HtmlBoxLayout"));
+        String status;
+        status = dataManager.loadValue("select c.status from news$News c where c.newsCaption = :id", String.class)
+                .parameter("id", "Accordion").one();
+        System.out.println("PUBLIC WORKS" + status);
+//        accordion.addTab("FIRST TAB", componentsFactory.createComponent("htmlBox"));
+//        accordion.getTab("FIRST TAB").setCaption("FIRST TAB");
     }
+
 
 
     public void unpublicNews(){
